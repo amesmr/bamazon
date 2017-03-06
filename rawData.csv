@@ -1,0 +1,9 @@
+item_id,product_name,department_name,price,stock_quantity,product_sales
+1,keyboard,electronics,25.99,45,
+2,computer mouse,electronics,25.99,50,
+3,laundry detergent,home,8.99,44,
+4,laptop,electronics,999.99,50,
+5,iPad,electronics,599,50,
+6,puppy,pets,20,1,
+7,end table,home,49.99,13,
+8,cat litter,pets,12.85,22,
