@@ -88,8 +88,8 @@ function shop() {
                     connection.query("SELECT * FROM products WHERE item_id = ?", [idArry[nameArry.indexOf(storedName)]], function (err, res) {
                         if (err) throw err;
                         // console.log("Current qty = " + currentQty);
-                        if (res[0].stock_quantity <= answ.qty) {
-                            console.log("\nSORRY!  There's only " + currentQty + " left in stock.  Please adjust your quantity.\n");
+                        if (res[0].stock_quantity < answ.qty) {
+                            console.log("\nSORRY!  There's only " + res[0].stock_quantity + " left in stock.  Please adjust your quantity.\n");
                         } else {
                             var currentQty = res[0].stock_quantity;
                             var newTotalSales = res[0].product_sales + (parseInt(answ.qty) * res[0].price);
@@ -204,7 +204,7 @@ function addToInventory() {
         }, {
             type: "input",
             name: "qty",
-            message: "How many would you like?"
+            message: "How many would you like to add?"
         }]).then(function (answ) {
             connection.query("SELECT * FROM products WHERE item_id = ?", [idArry[nameArry.indexOf(answ.name)]], function (err, res) {
                 if (err) throw err;
